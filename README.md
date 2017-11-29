@@ -7,3 +7,7 @@ Function:
 2. Don't steal.
 
 Easy to use.
+
+Installation:
+
+Download "fun_shit" in addons.
