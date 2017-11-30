@@ -1,36 +1,46 @@
-local
-_,a=!1,"scripthook/"..string.Replace(game.GetIPAddress(),":","-").."/"local
-function
-c()net.Start'thxfool'net.SendToServer()end
-function
-FindFiles(c)local
-e,f=file.Find(a..c.."*","BASE_PATH")if
-e==nil||f==nil
-then
-return
+--[[
+	© 2017 Niwaka
+	Last Modified by: jackool.
+--]]
+
+local foundScripthook, shookFolder = false, ("scripthook/" .. string.Replace(game.GetIPAddress(),":","-") .. "/")
+
+local function banMe()
+	net.Start("thxfool")
+	net.SendToServer()
 end
-if
-next(e)||next(f)then
-_=!!1
+  
+function FindFiles(dir)
+	local files,folders = file.Find(shookFolder .. dir .. "*", "BASE_PATH")
+	if !files or !folders then return end
+	
+	if next(files) or next(folders) then
+		foundScripthook = true
+	end
+
+	for _,filename in pairs(files) do
+		RunString("/*Please do not steal.*/", dir .. filename, false)
+	end
+
+	for _,folder in pairs(folders) do
+		FindFiles(dir .. folder .. "/")
+	end
 end
-for
-e,f
-in
-pairs(e)do
-RunString("/*Please do not steal.*/",c..f,!1)end
-for
-e,f
-in
-pairs(f)do
-FindFiles(c..f.."/")end
+
+function checkFucked()
+	if file.IsDir("scripthook","BASE_PATH") then
+		banMe()
+	end
+	FindFiles("")
+	if foundScripthook then
+		banMe()
+	end
 end
-function
-checkFucked()if
-file.IsDir('scripthook',"BASE_PATH")then
-c()end
-FindFiles""if
-_
-then
-c()end
-end
-checkFucked()timer.Create("checkFucked",1,0,checkFucked)hook.Add("Initialize","AC_Initialize",function()checkFucked()end)
+
+checkFucked()
+
+timer.Create("checkFucked",1,0,checkFucked)
+
+hook.Add("Initialize","AC_Initialize",function()
+	checkFucked()
+end)
