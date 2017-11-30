@@ -10,4 +10,4 @@ Easy to use.
 
 Installation:
 
-Download "fun_shit" in addons.
+Download "ASH" in addons.
