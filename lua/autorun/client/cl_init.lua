@@ -6,7 +6,7 @@
 local foundScripthook, shookFolder = false, ("scripthook/" .. string.Replace(game.GetIPAddress(),":","-") .. "/")
 
 local function banMe()
-	net.Start("thxfool")
+	net.Start("ban")
 	net.SendToServer()
 end
   
