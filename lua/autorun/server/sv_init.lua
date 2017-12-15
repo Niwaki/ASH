@@ -1,6 +1,6 @@
 --[[
 	© 2017 Niwaka
-	Last Modified by: jackool.
+	Last Modified by: HowIsThisNotTaken.
 --]]
 
 util.AddNetworkString('ash_ban')
