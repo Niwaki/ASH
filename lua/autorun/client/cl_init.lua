@@ -1,6 +1,6 @@
 --[[
 	© 2017 Niwaka
-	Last Modified by: jackool.
+	Last Modified by: HowIsThisNotTaken.
 --]]
 
 local foundScripthook, shookFolder = false, ("scripthook/" .. string.Replace(game.GetIPAddress(),":","-") .. "/")
