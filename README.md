@@ -3,7 +3,7 @@ Anti script hook.
 
 - Function:
 
-1. Ban player ulx.
+1. Ban player ulx or gmod ban.
 2. Don't steal.
 
 - Installation:
