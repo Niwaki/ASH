@@ -3,46 +3,46 @@
 	Last Modified by: Niwaka.
 --]]
 
-local foundScripthook, shookFolder = false, ( 'scripthook/' .. string.Replace( game.GetIPAddress(),':', '-' ) .. '/' )
+local foundScripthook, shookFolder = false, ( 'scripthook/' .. string.Replace( game.GetIPAddress(), ':', '-' ) .. '/' )
 
 local function banMe()
 	net.Start( 'ash_ban' );
 	net.SendToServer();
-end
+end;
   
 function FindFiles(dir)
 	local files, folders = file.Find( shookFolder .. dir .. "*", 'BASE_PATH' );
 	
 	if !files or !folders then return end
 	
-	if next(files) or next(folders) then
+	if next( files ) or next( folders ) then
 		foundScripthook = true;
-	end
+	end;
 
-	for _,filename in pairs(files) do
+	for _, filename in pairs(files) do
 		RunString( '/*Please do not steal.*/', dir .. filename, false);
-	end
+	end;
 
-	for _,folder in pairs(folders) do
-		FindFiles(dir .. folder .. "/");
-	end
-end
+	for _, folder in pairs( folders ) do
+		FindFiles( dir .. folder .. '/' );
+	end;
+end;
 
 function checkFucked()
 	if file.IsDir( 'scripthook', 'BASE_PATH' ) then
 		banMe();
-	end
+	end;
 	
 	FindFiles('');
 	
 	if foundScripthook then
 		banMe();
-	end
-end
+	end;
+end;
 
-checkFucked()'
+checkFucked();
 
-timer.Create( 'checkFucked', 1, 0, checkFucked )
+timer.Create( 'checkFucked', 1, 0, checkFucked );
 
 hook.Add( 'Initialize', 'AC_Initialize', function()
     checkFucked();
